@@ -37,6 +37,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class GreatCrab extends Crab {
 
 	{
@@ -51,8 +53,8 @@ public class GreatCrab extends Crab {
 		WANDERING = new Wandering();
 		state = WANDERING;
 
-		loot = new MysteryMeat().quantity(2);
-		lootChance = 1f;
+		//loot = new MysteryMeat().quantity(2);
+		lootChance = 0f;
 
 		properties.add(Property.MINIBOSS);
 	}
@@ -71,6 +73,15 @@ public class GreatCrab extends Crab {
 		}
 
 	}
+
+	@Override
+	public void rollToDropLoot() {
+		Dungeon.level.drop(Generator.randomItem(), pos).sprite.drop();
+		Dungeon.level.drop(Generator.randomItem(), pos).sprite.drop();
+		super.rollToDropLoot();
+	}
+
+
 
 	@Override
 	public void damage( int dmg, Object src ){

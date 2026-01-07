@@ -33,6 +33,7 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ShieldedSprite;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class ArmoredBrute extends Brute {
 
@@ -40,7 +41,7 @@ public class ArmoredBrute extends Brute {
 		spriteClass = ShieldedSprite.class;
 		
 		//see rollToDropLoot
-		loot = Generator.Category.ARMOR;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 	}
 	
@@ -62,10 +63,7 @@ public class ArmoredBrute extends Brute {
 	
 	@Override
 	public Item createLoot() {
-		if (Random.Int( 4 ) == 0) {
-			return new PlateArmor().random();
-		}
-		return new ScaleArmor().random();
+		return Generator.randomItem();
 	}
 	
 	//similar to regular brute rate, but deteriorates much slower. 60 turns to death total.

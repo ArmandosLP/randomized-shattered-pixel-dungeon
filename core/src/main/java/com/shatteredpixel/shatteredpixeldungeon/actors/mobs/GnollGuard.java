@@ -31,6 +31,7 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.GnollGuardSprite;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class GnollGuard extends Mob {
 
@@ -43,7 +44,7 @@ public class GnollGuard extends Mob {
 		EXP = 7;
 		maxLvl = -2;
 
-		loot = Spear.class;
+		loot = Generator.randomItem();
 		lootChance = 0.1f;
 
 		WANDERING = new Wandering();

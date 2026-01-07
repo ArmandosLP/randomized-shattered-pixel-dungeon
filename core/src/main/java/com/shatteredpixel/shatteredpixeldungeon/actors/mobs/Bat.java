@@ -29,6 +29,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHealing;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.BatSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class Bat extends Mob {
 
@@ -44,7 +45,7 @@ public class Bat extends Mob {
 		
 		flying = true;
 		
-		loot = PotionOfHealing.class;
+		loot = Generator.randomItem();
 		lootChance = 0.1667f; //by default, see lootChance()
 	}
 	

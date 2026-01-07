@@ -35,6 +35,12 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.TormentedSpiritSprite;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.Artifact;
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+
 public class TormentedSpirit extends Wraith {
 
 	{
@@ -58,21 +64,24 @@ public class TormentedSpirit extends Wraith {
 		yell(Messages.get(this, "thank_you"));
 
 		//50/50 between weapon or armor, always uncursed & enchanted, 50% chance to be +1 if level 0
-		Item prize;
-		if (Random.Int(2) == 0){
-			prize = Generator.randomWeapon(true);
-			((Weapon)prize).enchant();
-		} else {
-			prize = Generator.randomArmor();
-			((Armor) prize).inscribe();
+		Item prize = Generator.randomItem();
+		
+		// Darts are Weapon but cannot be upgraded or enchanted.
+		if (!(prize instanceof Dart)){
+			if (prize instanceof Weapon){
+				((Weapon)prize).enchant();
+			} else if(prize instanceof Armor) {
+				((Armor) prize).inscribe();
+			}
+			if (prize instanceof Weapon || prize instanceof Armor || prize instanceof Ring || prize instanceof Wand || prize instanceof MissileWeapon){
+				prize.cursed = false;
+				prize.cursedKnown = true;
+					if (prize.level() == 0 && Random.Int(2) == 0){
+						prize.upgrade();
+					}
+			}
 		}
-		prize.cursed = false;
-		prize.cursedKnown = true;
-
-		if (prize.level() == 0 && Random.Int(2) == 0){
-			prize.upgrade();
-		}
-
+		
 		Dungeon.level.drop(prize, pos).sprite.drop();
 
 		destroy();

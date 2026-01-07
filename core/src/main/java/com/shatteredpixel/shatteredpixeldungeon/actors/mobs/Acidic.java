@@ -28,6 +28,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Ooze;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfExperience;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.AcidicSprite;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class Acidic extends Scorpio {
 
@@ -36,7 +37,7 @@ public class Acidic extends Scorpio {
 		
 		properties.add(Property.ACIDIC);
 
-		loot = PotionOfExperience.class;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 	}
 	@Override

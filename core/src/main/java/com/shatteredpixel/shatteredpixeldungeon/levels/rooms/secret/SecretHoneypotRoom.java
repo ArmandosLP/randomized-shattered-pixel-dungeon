@@ -31,6 +31,8 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.watabou.utils.Point;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class SecretHoneypotRoom extends SecretRoom {
 	
 	@Override
@@ -43,8 +45,11 @@ public class SecretHoneypotRoom extends SecretRoom {
 		brokenPotPos.x = (brokenPotPos.x + entrance().x) / 2;
 		brokenPotPos.y = (brokenPotPos.y + entrance().y) / 2;
 		
-		Honeypot.ShatteredPot pot = new Honeypot.ShatteredPot();
-		level.drop(pot, level.pointToCell(brokenPotPos));
+		//Honeypot.ShatteredPot pot = new Honeypot.ShatteredPot();
+		
+		Item notPot = Generator.randomItem();
+
+		level.drop(notPot, level.pointToCell(brokenPotPos));
 		
 		Bee bee = new Bee();
 		bee.spawn( Dungeon.depth );
@@ -54,9 +59,9 @@ public class SecretHoneypotRoom extends SecretRoom {
 		
 		bee.setPotInfo(level.pointToCell(brokenPotPos), null);
 		
-		placeItem(new Honeypot(), level);
+		placeItem(Generator.randomItem(), level);
 		
-		placeItem( new Bomb().random(), level);
+		placeItem(Generator.randomItem(), level);
 		
 		entrance().set(Door.Type.HIDDEN);
 	}

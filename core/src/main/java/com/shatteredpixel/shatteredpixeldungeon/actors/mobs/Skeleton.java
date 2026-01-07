@@ -44,6 +44,8 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class Skeleton extends Mob {
 	
 	{
@@ -55,7 +57,7 @@ public class Skeleton extends Mob {
 		EXP = 5;
 		maxLvl = 10;
 
-		loot = Generator.Category.WEAPON;
+		loot = Generator.randomItem();
 		lootChance = 0.1667f; //by default, see lootChance()
 
 		properties.add(Property.UNDEAD);

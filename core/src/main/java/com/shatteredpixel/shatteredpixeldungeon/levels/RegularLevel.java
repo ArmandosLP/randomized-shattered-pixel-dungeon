@@ -476,7 +476,7 @@ public abstract class RegularLevel extends Level {
 					map[cell] = Terrain.GRASS;
 					losBlocking[cell] = false;
 				}
-				drop( new Torch(), cell );
+				drop( Generator.randomItem(), cell );
 				//add a second torch to help with the larger floor
 				if (feeling == Feeling.LARGE){
 					cell = randomDropCell();

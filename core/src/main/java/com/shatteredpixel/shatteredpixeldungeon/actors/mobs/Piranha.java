@@ -39,6 +39,8 @@ import com.watabou.utils.BArray;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class Piranha extends Mob {
 	
 	{
@@ -48,7 +50,7 @@ public class Piranha extends Mob {
 		
 		EXP = 0;
 		
-		loot = MysteryMeat.class;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 		
 		SLEEPING = new Sleeping();

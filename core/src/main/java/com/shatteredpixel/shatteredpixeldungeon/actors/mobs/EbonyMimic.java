@@ -31,15 +31,18 @@ import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.Artifact;
-import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.features.Door;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.MimicSprite;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.noosa.audio.Sample;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
 
 public class EbonyMimic extends Mimic {
 
@@ -98,7 +101,7 @@ public class EbonyMimic extends Mimic {
 	protected void generatePrize( boolean useDecks ) {
 		super.generatePrize( useDecks );
 		//add one extra random loot item, on top of the one granted by mimic tooth
-		items.add(Generator.randomUsingDefaults());
+		items.add(Generator.randomItem());
 
 		//all existing prize items are guaranteed uncursed, and are always at least +1
 		for (Item i : items){
@@ -111,9 +114,14 @@ public class EbonyMimic extends Mimic {
 				if (i instanceof Armor && ((Armor) i).hasCurseGlyph()){
 					((Armor) i).inscribe(null);
 				}
-				if (!(i instanceof Artifact) && i.level() == 0){
-					i.upgrade();
-				}
+				// Darts are Weapon and MissileWeapon but cannot be upgraded.
+				if (i instanceof Dart) return;
+
+				if (i instanceof Weapon || i instanceof Armor || i instanceof Ring || i instanceof Wand || i instanceof MissileWeapon){
+					if (i.level() == 0){
+						i.upgrade();
+					}
+				}	
 			}
 		}
 	}

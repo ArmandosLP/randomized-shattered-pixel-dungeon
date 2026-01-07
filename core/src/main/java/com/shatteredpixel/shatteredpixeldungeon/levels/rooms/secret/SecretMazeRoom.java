@@ -36,6 +36,11 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+
 public class SecretMazeRoom extends SecretRoom {
 	
 	@Override
@@ -95,28 +100,31 @@ public class SecretMazeRoom extends SecretRoom {
 			}
 		}
 		
-		Item prize;
+		Item prize = Generator.randomItem();
 		//1 floor set higher in probability, never cursed
-		//1 floor set higher in probability, never cursed
-		if (Random.Int(2) == 0) {
-			prize = Generator.randomWeapon((Dungeon.depth / 5) + 1, true);
-			if (((Weapon)prize).hasCurseEnchant()){
-				((Weapon) prize).enchant(null);
-			}
-		} else {
-			prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
-			if (((Armor)prize).hasCurseGlyph()){
-				((Armor) prize).inscribe(null);
-			}
+
+
+		if (prize instanceof Weapon && ((Weapon)prize).hasCurseEnchant()){
+			((Weapon) prize).enchant(null);
 		}
+		if (prize instanceof Armor && ((Armor)prize).hasCurseGlyph()){
+			((Armor) prize).inscribe(null);
+		}
+	
+
 		prize.cursed = false;
 		prize.cursedKnown = true;
 		
 		//33% chance for an extra update.
-		if (Random.Int(3) == 0){
-			prize.upgrade();
+
+		if (!(prize instanceof Dart)){
+			if (prize instanceof Weapon || prize instanceof Armor || prize instanceof Ring || prize instanceof Wand || prize instanceof MissileWeapon){
+				if (Random.Int(3) == 0){
+					prize.upgrade();
+				}
+			}	
 		}
-		
+
 		level.drop(prize, level.pointToCell(bestDistP)).type = Heap.Type.CHEST;
 		
 		PathFinder.setMapSize(level.width(), level.height());

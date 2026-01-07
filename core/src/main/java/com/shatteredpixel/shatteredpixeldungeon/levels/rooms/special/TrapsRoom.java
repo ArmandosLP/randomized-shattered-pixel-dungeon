@@ -45,6 +45,11 @@ import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+
 public class TrapsRoom extends SpecialRoom {
 
 	//size is a bit limited to prevent too many or too few traps
@@ -134,25 +139,27 @@ public class TrapsRoom extends SpecialRoom {
 		}
 		
 		//1 floor set higher in probability, never cursed
-		if (Random.Int(2) == 0) {
-			prize = Generator.randomWeapon((Dungeon.depth / 5) + 1);
-			if (((Weapon)prize).hasCurseEnchant()){
-				((Weapon) prize).enchant(null);
-			}
-		} else {
-			prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
-			if (((Armor)prize).hasCurseGlyph()){
-				((Armor) prize).inscribe(null);
-			}
+
+		prize = Generator.randomItem();
+
+		if (prize instanceof Weapon && ((Weapon)prize).hasCurseEnchant()){
+			((Weapon) prize).enchant(null);
 		}
+		else if (prize instanceof Armor && ((Armor)prize).hasCurseGlyph()){
+			((Armor) prize).inscribe(null);
+		}
+	
 		prize.cursed = false;
 		prize.cursedKnown = true;
 
 		//33% chance for an extra update.
-		if (Random.Int(3) == 0){
-			prize.upgrade();
+		if (prize instanceof Dart) return prize;
+
+		if (prize instanceof Weapon || prize instanceof Armor || prize instanceof Ring || prize instanceof Wand || prize instanceof MissileWeapon){
+			if (Random.Int(3) == 0){
+				prize.upgrade();
+			}
 		}
-		
 		return prize;
 	}
 

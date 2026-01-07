@@ -90,6 +90,8 @@ public class CrystalVaultRoom extends SpecialRoom {
 	}
 	
 	private Item prize() {
+		return Generator.randomItem();
+		/*
 		Generator.Category cat = prizeClasses.remove(0);
 		prizeClasses.add(cat);
 		Item prize;
@@ -97,6 +99,7 @@ public class CrystalVaultRoom extends SpecialRoom {
 			prize = Generator.random(cat);
 		} while (prize == null || Challenges.isItemBlocked(prize));
 		return prize;
+		*/
 	}
 	
 	private ArrayList<Generator.Category> prizeClasses = new ArrayList<>(

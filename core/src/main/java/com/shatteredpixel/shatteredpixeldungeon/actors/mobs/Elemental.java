@@ -62,6 +62,8 @@ import com.watabou.utils.GameMath;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 
 public abstract class Elemental extends Mob {
@@ -228,7 +230,7 @@ public abstract class Elemental extends Mob {
 		{
 			spriteClass = ElementalSprite.Fire.class;
 			
-			loot = PotionOfLiquidFlame.class;
+			loot = Generator.randomItem();
 			lootChance = 1/8f;
 			
 			properties.add( Property.FIERY );
@@ -479,7 +481,7 @@ public abstract class Elemental extends Mob {
 		{
 			spriteClass = ElementalSprite.Frost.class;
 			
-			loot = PotionOfFrost.class;
+			loot = Generator.randomItem();
 			lootChance = 1/8f;
 			
 			properties.add( Property.ICY );
@@ -507,7 +509,7 @@ public abstract class Elemental extends Mob {
 		{
 			spriteClass = ElementalSprite.Shock.class;
 			
-			loot = ScrollOfRecharging.class;
+			loot = Generator.randomItem();
 			lootChance = 1/4f;
 			
 			properties.add( Property.ELECTRIC );
@@ -556,7 +558,7 @@ public abstract class Elemental extends Mob {
 		{
 			spriteClass = ElementalSprite.Chaos.class;
 			
-			loot = ScrollOfTransmutation.class;
+			loot = Generator.randomItem();
 			lootChance = 1f;
 		}
 		

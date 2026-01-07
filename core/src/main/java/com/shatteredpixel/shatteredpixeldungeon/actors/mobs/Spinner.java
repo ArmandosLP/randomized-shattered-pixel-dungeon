@@ -38,6 +38,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class Spinner extends Mob {
 
 	{
@@ -49,7 +51,7 @@ public class Spinner extends Mob {
 		EXP = 9;
 		maxLvl = 17;
 
-		loot = MysteryMeat.class;
+		loot = Generator.randomItem();
 		lootChance = 0.125f;
 
 		HUNTING = new Hunting();

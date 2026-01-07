@@ -35,6 +35,7 @@ import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 import java.util.ArrayList;
 
@@ -51,7 +52,7 @@ public class DemonSpawner extends Mob {
 
 		state = PASSIVE;
 
-		loot = PotionOfHealing.class;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 
 		properties.add(Property.IMMOVABLE);

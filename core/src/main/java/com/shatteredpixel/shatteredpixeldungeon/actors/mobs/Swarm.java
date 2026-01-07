@@ -35,6 +35,8 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.SwarmSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 
 public class Swarm extends Mob {
@@ -50,7 +52,7 @@ public class Swarm extends Mob {
 		
 		flying = true;
 
-		loot = PotionOfHealing.class;
+		loot = Generator.randomItem();
 		lootChance = 0.1667f; //by default, see lootChance()
 	}
 	

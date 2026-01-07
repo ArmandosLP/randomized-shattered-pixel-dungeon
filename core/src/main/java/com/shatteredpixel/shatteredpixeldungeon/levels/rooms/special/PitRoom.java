@@ -95,12 +95,7 @@ public class PitRoom extends SpecialRoom {
 	}
 	
 	private static Item prize( Level level ) {
-		return Generator.random( Random.oneOf(
-			Generator.Category.POTION,
-			Generator.Category.SCROLL,
-			Generator.Category.FOOD,
-			Generator.Category.GOLD
-		) );
+		return Generator.randomItem();
 	}
 	
 	@Override
@@ -108,6 +103,7 @@ public class PitRoom extends SpecialRoom {
 		//the player is already weak after landing, and will likely need to kite the ghost.
 		//having traps here just seems unfair
 		return false;
+		//Armandos: I can do something really evil >:)
 	}
 
 	@Override

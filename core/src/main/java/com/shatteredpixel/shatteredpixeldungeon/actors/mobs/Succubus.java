@@ -62,7 +62,7 @@ public class Succubus extends Mob {
 		EXP = 12;
 		maxLvl = 25;
 		
-		loot = Generator.Category.SCROLL;
+		loot = Generator.randomItem();
 		lootChance = 0.33f;
 
 		properties.add(Property.DEMONIC);
@@ -169,6 +169,8 @@ public class Succubus extends Mob {
 		return super.drRoll() + Random.NormalIntRange(0, 10);
 	}
 
+	// Prevents the player to get Identify and Upgrade scrolls. Not necessary
+	/*
 	@Override
 	public Item createLoot() {
 		Class<?extends Scroll> loot;
@@ -178,6 +180,7 @@ public class Succubus extends Mob {
 
 		return Reflection.newInstance(loot);
 	}
+	*/
 
 	{
 		immunities.add( Charm.class );

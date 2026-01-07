@@ -123,15 +123,6 @@ public class LaboratoryRoom extends SpecialRoom {
 	}
 	
 	private static Item prize( Level level ) {
-
-		Item prize = level.findPrizeItem( TrinketCatalyst.class );
-		if (prize == null){
-			prize = level.findPrizeItem( PotionOfStrength.class );
-			if (prize == null) {
-				prize = Generator.random(Random.oneOf(Generator.Category.POTION, Generator.Category.STONE));
-			}
-		}
-
-		return prize;
+		return Generator.randomItem();
 	}
 }

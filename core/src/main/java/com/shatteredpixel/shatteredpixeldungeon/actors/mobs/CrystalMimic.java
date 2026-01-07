@@ -45,6 +45,14 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.Scroll;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.Potion;
+import com.shatteredpixel.shatteredpixeldungeon.items.trinkets.Trinket;
+import com.shatteredpixel.shatteredpixeldungeon.items.stones.Runestone;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Spell;
+
 import java.util.ArrayList;
 
 public class CrystalMimic extends Mimic {
@@ -69,16 +77,42 @@ public class CrystalMimic extends Mimic {
 		if (alignment == Alignment.NEUTRAL){
 			String desc = null;
 			for (Item i : items){
-				if (i instanceof Artifact){
-					desc = Messages.get(Heap.class, "crystal_chest_desc", Messages.get(Heap.class, "artifact"));
+
+				if (i instanceof Trinket){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "una baratija");
 					break;
-				} else if (i instanceof Ring){
-					desc = Messages.get(Heap.class, "crystal_chest_desc", Messages.get(Heap.class, "ring"));
+				} else if (i instanceof Artifact){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", Messages.get(Heap.class, "artifact"));
 					break;
 				} else if (i instanceof Wand){
 					desc = Messages.get(Heap.class, "crystal_chest_desc", Messages.get(Heap.class, "wand"));
 					break;
+				} else if (i instanceof Ring){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", Messages.get(Heap.class, "ring"));
+					break;
+				} else if (i instanceof Armor){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "una armadura");
+					break;
+				} else if (i instanceof Weapon){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "un arma");
+					break;
+				} else if (i instanceof Scroll){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "un pergamino");
+					break;
+				} else if (i instanceof Potion){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "una pocion");
+					break;
+				} else if (i instanceof Runestone){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "una piedra");
+					break;
+				} else if (i instanceof Spell){
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "un hechizo");
+					break;
+				} else {
+					desc = Messages.get(Heap.class, "crystal_chest_desc", "Caos, caos!");
+					break;
 				}
+				
 			}
 			if (desc == null) {
 				desc = Messages.get(Heap.class, "locked_chest_desc");

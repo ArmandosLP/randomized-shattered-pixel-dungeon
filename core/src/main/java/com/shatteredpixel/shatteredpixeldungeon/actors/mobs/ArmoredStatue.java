@@ -113,7 +113,8 @@ public class ArmoredStatue extends Statue {
 	@Override
 	public void die( Object cause ) {
 		armor.identify(false);
-		Dungeon.level.drop( armor, pos ).sprite.drop();
+		Dungeon.level.drop( Generator.randomItem(), pos ).sprite.drop();
+		//Dungeon.level.drop( armor, pos ).sprite.drop();
 		super.die( cause );
 	}
 

@@ -28,11 +28,17 @@ import com.shatteredpixel.shatteredpixeldungeon.items.Gold;
 import com.shatteredpixel.shatteredpixeldungeon.items.Heap;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.IronKey;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.watabou.utils.Point;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
 
 public class CryptRoom extends SpecialRoom {
 
@@ -73,8 +79,7 @@ public class CryptRoom extends SpecialRoom {
 	
 	private static Item prize( Level level ) {
 		
-		//1 floor set higher than normal
-		Armor prize = Generator.randomArmor( (Dungeon.depth / 5) + 1);
+		Item prize = Generator.randomItem();
 		
 		if (Challenges.isItemBlocked(prize)){
 			return new Gold().random();
@@ -82,17 +87,29 @@ public class CryptRoom extends SpecialRoom {
 
 		//always generate the curse to prevent parchment scrap from altering levelgen
 		Armor.Glyph curse = Armor.Glyph.randomCurse();
+		Weapon.Enchantment curse2 = Weapon.Enchantment.randomCurse();
 
 		//if it isn't already cursed, give it a free upgrade
-		if (!prize.cursed){
-			prize.upgrade();
-			//curse the armor, unless it has a glyph
-			if (!prize.hasGoodGlyph()){
-				prize.inscribe(curse);
+		if (prize instanceof Dart) return prize;
+
+		if (prize instanceof Weapon || prize instanceof Armor || prize instanceof Ring || prize instanceof Wand || prize instanceof MissileWeapon){
+			if (!prize.cursed){
+				prize.upgrade();
+				
+				if ( prize instanceof Armor && !((Armor)prize).hasGoodGlyph()){
+					((Armor)prize).inscribe(curse);
+				}
+				else if ( prize instanceof Weapon && !((Weapon)prize).hasGoodEnchant()){
+					((Weapon)prize).enchant(curse2);
+				}else{
+					prize.cursed = true;
+				}
 			}
 		}
-		prize.cursed = prize.cursedKnown = true;
-		
+
+		prize.cursed = true;
+		prize.cursedKnown = true;
+
 		return prize;
 	}
 }

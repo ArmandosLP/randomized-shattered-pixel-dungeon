@@ -102,9 +102,9 @@ public class GnollExile extends Gnoll {
 
 		//drops 2 or 3 random items
 		ArrayList<Item> items = new ArrayList<>();
-		items.add(Generator.randomUsingDefaults());
-		items.add(Generator.randomUsingDefaults());
-		if (Random.Int(2) == 0) items.add(Generator.randomUsingDefaults());
+		items.add(Generator.randomItem());
+		items.add(Generator.randomItem());
+		if (Random.Int(2) == 0) items.add(Generator.randomItem());
 
 		for (Item item : items){
 			int ofs;

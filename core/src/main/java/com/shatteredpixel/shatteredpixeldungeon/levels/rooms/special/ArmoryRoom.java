@@ -62,9 +62,10 @@ public class ArmoryRoom extends SpecialRoom {
 			do {
 				pos = level.pointToCell(random());
 			} while (level.map[pos] != Terrain.EMPTY || level.heaps.get( pos ) != null);
-			level.drop( prize( level ), pos );
+			level.drop( Generator.randomItem(), pos );
 		}
 
+		/*
 		Item cata = level.findPrizeItem(TrinketCatalyst.class);
 		if (cata != null){
 			int pos;
@@ -73,7 +74,8 @@ public class ArmoryRoom extends SpecialRoom {
 			} while (level.map[pos] != Terrain.EMPTY || level.heaps.get( pos ) != null);
 			level.drop( cata, pos );
 		}
-		
+		*/
+
 		entrance.set( Door.Type.LOCKED );
 		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
 	}

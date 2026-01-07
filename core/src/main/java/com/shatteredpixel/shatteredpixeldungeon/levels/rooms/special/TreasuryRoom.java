@@ -47,9 +47,9 @@ public class TreasuryRoom extends SpecialRoom {
 		
 		int n = Random.IntRange( 2, 3 );
 		float mimicChance = 1/5f * MimicTooth.mimicChanceMultiplier();
+		
 		for (int i=0; i < n; i++) {
-			Item item = level.findPrizeItem(TrinketCatalyst.class);
-			if (item == null) item = new Gold().random();
+			Item item = new Gold().random();
 
 			int pos;
 			do {

@@ -36,6 +36,7 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class Brute extends Mob {
 	
@@ -48,7 +49,7 @@ public class Brute extends Mob {
 		EXP = 8;
 		maxLvl = 16;
 		
-		loot = Gold.class;
+		loot = Generator.randomItem();
 		lootChance = 0.5f;
 	}
 	

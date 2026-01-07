@@ -55,6 +55,11 @@ import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Rect;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+
 public class SentryRoom extends SpecialRoom {
 
 	@Override
@@ -182,34 +187,28 @@ public class SentryRoom extends SpecialRoom {
 				return prize;
 		}
 
+
 		//1 floor set higher in probability, never cursed
-		switch (Random.Int(5)){
-			case 0: case 1: default:
-				prize = Generator.randomWeapon((Dungeon.depth / 5) + 1);
-				if (((Weapon)prize).hasCurseEnchant()){
-					((Weapon) prize).enchant(null);
-				}
-				break;
-			case 2:
-				prize = Generator.randomMissile((Dungeon.depth / 5) + 1);
-				if (((Weapon)prize).hasCurseEnchant()){
-					((Weapon) prize).enchant(null);
-				}
-				break;
-			case 3: case 4:
-				prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
-				if (((Armor)prize).hasCurseGlyph()){
-					((Armor) prize).inscribe(null);
-				}
-				break;
+		prize = Generator.randomItem();
+
+		if (prize instanceof Dart) return prize;
+
+		if (prize instanceof Weapon && ((Weapon)prize).hasCurseEnchant()){
+			((Weapon) prize).enchant(null);
 		}
+		else if (prize instanceof Armor && ((Armor)prize).hasCurseGlyph()){
+			((Armor) prize).inscribe(null);
+		}
+
 		prize.cursed = false;
 		prize.cursedKnown = true;
 
 		//33% chance for an extra update.
-		if (Random.Int(3) == 0){
-			prize.upgrade();
-		}
+		if (prize instanceof Weapon || prize instanceof Armor || prize instanceof Ring || prize instanceof Wand || prize instanceof MissileWeapon){
+			if (Random.Int(3) == 0){
+				prize.upgrade();
+			}	
+		}	
 
 		return prize;
 	}

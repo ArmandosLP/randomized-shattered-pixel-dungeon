@@ -79,6 +79,8 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -212,7 +214,7 @@ public class Tengu extends Mob {
 	public void die( Object cause ) {
 		
 		if (Dungeon.hero.subClass == HeroSubClass.NONE) {
-			Dungeon.level.drop( new TengusMask(), pos ).sprite.drop();
+			Dungeon.level.drop( Generator.randomItem(), pos ).sprite.drop();
 		}
 		
 		GameScene.bossSlain();

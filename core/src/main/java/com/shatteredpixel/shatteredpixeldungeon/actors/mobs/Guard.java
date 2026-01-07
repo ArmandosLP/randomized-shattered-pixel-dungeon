@@ -54,7 +54,7 @@ public class Guard extends Mob {
 		EXP = 7;
 		maxLvl = 14;
 
-		loot = Generator.Category.ARMOR;
+		loot = Generator.randomItem();
 		lootChance = 0.2f; //by default, see lootChance()
 
 		properties.add(Property.UNDEAD);

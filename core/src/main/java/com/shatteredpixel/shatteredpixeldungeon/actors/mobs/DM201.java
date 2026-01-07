@@ -31,6 +31,7 @@ import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.DM201Sprite;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class DM201 extends DM200 {
 
@@ -105,7 +106,7 @@ public class DM201 extends DM200 {
 		do {
 			ofs = PathFinder.NEIGHBOURS8[Random.Int(8)];
 		} while (Dungeon.level.solid[pos + ofs] && !Dungeon.level.passable[pos + ofs]);
-		Dungeon.level.drop( new MetalShard(), pos + ofs ).sprite.drop( pos );
+		Dungeon.level.drop( Generator.randomItem() , pos + ofs ).sprite.drop( pos );
 	}
 
 	private class Hunting extends Mob.Hunting {

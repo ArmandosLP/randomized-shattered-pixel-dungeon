@@ -35,6 +35,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 
 public class SpectralNecromancer extends Necromancer {
@@ -66,7 +68,7 @@ public class SpectralNecromancer extends Necromancer {
 		do {
 			ofs = PathFinder.NEIGHBOURS8[Random.Int(8)];
 		} while (Dungeon.level.solid[pos + ofs] && !Dungeon.level.passable[pos + ofs]);
-		Dungeon.level.drop( new ScrollOfRemoveCurse(), pos + ofs ).sprite.drop( pos );
+		Dungeon.level.drop( Generator.randomItem(), pos + ofs ).sprite.drop( pos );
 	}
 
 	@Override

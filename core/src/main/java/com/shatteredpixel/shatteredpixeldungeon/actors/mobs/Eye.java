@@ -247,10 +247,10 @@ public class Eye extends Mob {
 				}
 				break;
 			case 2:
-				loot = Generator.randomUsingDefaults(Generator.Category.SEED);
+				loot = Generator.randomItem();
 				break;
 			case 3:
-				loot = Generator.randomUsingDefaults(Generator.Category.STONE);
+				loot = Generator.randomItem();
 				break;
 		}
 		return loot;

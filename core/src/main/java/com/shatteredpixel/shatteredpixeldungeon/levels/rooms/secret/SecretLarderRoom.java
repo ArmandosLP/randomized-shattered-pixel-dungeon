@@ -32,6 +32,9 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.shatteredpixel.shatteredpixeldungeon.plants.BlandfruitBush;
 import com.watabou.utils.Point;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+import com.shatteredpixel.shatteredpixeldungeon.items.Item;
+
 public class SecretLarderRoom extends SecretRoom {
 	
 	@Override
@@ -57,21 +60,21 @@ public class SecretLarderRoom extends SecretRoom {
 		level.plant(new BlandfruitBush.Seed(), level.pointToCell(c));
 		
 		int extraFood = (int)(Hunger.STARVING - Hunger.HUNGRY) * (1 + Dungeon.depth / 5);
-		
+
 		while (extraFood > 0){
-			Food food;
+			Item randItem;
 			if (extraFood >= Hunger.STARVING){
-				food = new Pasty();
+				randItem = Generator.randomItem();
 				extraFood -= Hunger.STARVING;
 			} else {
-				food = new ChargrilledMeat();
+				randItem = Generator.randomItem();
 				extraFood -= (Hunger.STARVING - Hunger.HUNGRY);
 			}
 			int foodPos;
 			do {
 				foodPos = level.pointToCell(random());
 			} while (level.map[foodPos] != Terrain.EMPTY_SP || level.heaps.get(foodPos) != null);
-			level.drop(food, foodPos);
+			level.drop(randItem, foodPos);
 		}
 		
 		entrance().set(Door.Type.HIDDEN);

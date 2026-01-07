@@ -61,24 +61,24 @@ public class SecretRunestoneRoom extends SecretRoom {
 			}
 		}
 		
-		level.addItemToSpawn(new PotionOfLiquidFlame());
+		level.addItemToSpawn(Generator.randomItem());
 		
 		int dropPos;
 		
 		do{
 			dropPos = level.pointToCell(random());
 		} while (level.map[dropPos] != Terrain.EMPTY);
-		level.drop( Generator.randomUsingDefaults(Generator.Category.STONE), dropPos);
+		level.drop( Generator.randomItem(), dropPos);
 		
 		do{
 			dropPos = level.pointToCell(random());
 		} while (level.map[dropPos] != Terrain.EMPTY || level.heaps.get(dropPos) != null);
-		level.drop( Generator.randomUsingDefaults(Generator.Category.STONE), dropPos);
+		level.drop( Generator.randomItem(), dropPos);
 		
 		do{
 			dropPos = level.pointToCell(random());
 		} while (level.map[dropPos] != Terrain.EMPTY_SP);
-		level.drop( new StoneOfEnchantment(), dropPos);
+		level.drop( Generator.randomItem(), dropPos);
 		
 		entrance.set(Door.Type.HIDDEN);
 	}

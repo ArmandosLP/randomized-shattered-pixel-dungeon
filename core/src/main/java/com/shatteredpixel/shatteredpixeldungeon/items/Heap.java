@@ -52,6 +52,15 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.Weapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.Scroll;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.Potion;
+import com.shatteredpixel.shatteredpixeldungeon.items.trinkets.Trinket;
+import com.shatteredpixel.shatteredpixeldungeon.items.stones.Runestone;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Spell;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -398,12 +407,31 @@ public class Heap implements Bundlable {
 			case LOCKED_CHEST:
 				return Messages.get(this, "locked_chest_desc");
 			case CRYSTAL_CHEST:
+				
 				if (peek() instanceof Artifact)
 					return Messages.get(this, "crystal_chest_desc", Messages.get(this, "artifact") );
 				else if (peek() instanceof Wand)
 					return Messages.get(this, "crystal_chest_desc", Messages.get(this, "wand") );
-				else
+				else if (peek() instanceof Ring)
 					return Messages.get(this, "crystal_chest_desc", Messages.get(this, "ring") );
+				else if (peek() instanceof Trinket)
+					return Messages.get(this, "crystal_chest_desc", "una baratija" );
+				else if (peek() instanceof Armor)
+					return Messages.get(this, "crystal_chest_desc", "una armadura" );
+				else if (peek() instanceof Weapon)
+					return Messages.get(this, "crystal_chest_desc", "un arma" );
+				else if (peek() instanceof Scroll)
+					return Messages.get(this, "crystal_chest_desc", "un pergamino" );
+				else if (peek() instanceof Potion)
+					return Messages.get(this, "crystal_chest_desc", "una pocion" );
+				else if (peek() instanceof Runestone)
+					return Messages.get(this, "crystal_chest_desc", "una piedra" );
+				else if (peek() instanceof Spell)
+					return Messages.get(this, "crystal_chest_desc", "un hechizo" );
+				else
+					return Messages.get(this, "crystal_chest_desc", "Caos, caos!" );
+
+
 			case TOMB:
 				return Messages.get(this, "tomb_desc");
 			case SKELETON:

@@ -48,7 +48,7 @@ public class Scorpio extends Mob {
 		EXP = 14;
 		maxLvl = 27;
 		
-		loot = Generator.Category.POTION;
+		loot = Generator.randomItem();
 		lootChance = 0.5f;
 
 		properties.add(Property.DEMONIC);

@@ -25,12 +25,14 @@ import com.shatteredpixel.shatteredpixeldungeon.items.food.Pasty;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.SeniorSprite;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class Senior extends Monk {
 
 	{
 		spriteClass = SeniorSprite.class;
 
-		loot = Pasty.class;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 	}
 	

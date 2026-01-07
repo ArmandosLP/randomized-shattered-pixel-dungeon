@@ -67,13 +67,8 @@ public class BlacksmithRoom extends StandardRoom {
 			do {
 				pos = level.pointToCell(random());
 			} while (level.map[pos] != Terrain.EMPTY_SP);
-			level.drop(
-				Generator.random( Random.oneOf(
-					Generator.Category.ARMOR,
-					Generator.Category.WEAPON,
-					Generator.Category.MISSILE
-				) ), pos );
-		}
+			level.drop(Generator.randomItem(), pos );
+			}
 		
 		Blacksmith npc = new Blacksmith();
 		do {

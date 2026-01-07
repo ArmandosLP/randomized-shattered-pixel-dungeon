@@ -65,13 +65,9 @@ public class RunestoneRoom extends SpecialRoom {
 	}
 	
 	private static Item prize( Level level ) {
-
-		Item prize = level.findPrizeItem( TrinketCatalyst.class );
-		if (prize == null){
-			prize = level.findPrizeItem( Runestone.class );
-			if (prize == null) {
-				prize = Generator.random( Generator.Category.STONE );
-			}
+		Item prize = level.findPrizeItem( Runestone.class );
+		if (prize == null) {
+			prize = Generator.randomItem();
 		}
 		
 		return prize;

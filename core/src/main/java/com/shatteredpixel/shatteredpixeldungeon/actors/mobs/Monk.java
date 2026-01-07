@@ -33,6 +33,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 
 public class Monk extends Mob {
 	
@@ -45,7 +46,7 @@ public class Monk extends Mob {
 		EXP = 11;
 		maxLvl = 21;
 		
-		loot = Food.class;
+		loot = Generator.randomItem();
 		lootChance = 0.083f;
 
 		properties.add(Property.UNDEAD);

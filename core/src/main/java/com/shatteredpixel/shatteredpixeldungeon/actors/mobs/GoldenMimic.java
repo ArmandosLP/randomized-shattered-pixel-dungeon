@@ -41,6 +41,9 @@ import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+
 public class GoldenMimic extends Mimic {
 
 	{
@@ -100,9 +103,15 @@ public class GoldenMimic extends Mimic {
 				if (i instanceof Armor && ((Armor) i).hasCurseGlyph()){
 					((Armor) i).inscribe(null);
 				}
-				if (!(i instanceof Artifact) && i.level() == 0 && Random.Int(2) == 0){
-					i.upgrade();
-				}
+
+				if (i instanceof Dart) return;
+
+				if (i instanceof Weapon || i instanceof Armor || i instanceof Ring || i instanceof Armor || i instanceof Wand || i instanceof MissileWeapon){
+					if (i.level() == 0 && Random.Int(2) == 0){
+						i.upgrade();
+					}
+				}	
+				
 			}
 		}
 	}

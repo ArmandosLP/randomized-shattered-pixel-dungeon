@@ -41,6 +41,8 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.HashMap;
 
 public class SecretLibraryRoom extends SecretRoom {
@@ -54,7 +56,7 @@ public class SecretLibraryRoom extends SecretRoom {
 	public int minHeight() {
 		return Math.max(7, super.minHeight());
 	}
-	
+	/*
 	private static HashMap<Class<? extends Scroll>, Float> scrollChances = new HashMap<>();
 	static{
 		scrollChances.put( ScrollOfIdentify.class,      1f );
@@ -69,7 +71,7 @@ public class SecretLibraryRoom extends SecretRoom {
 		scrollChances.put( ScrollOfTerror.class,        4f );
 		scrollChances.put( ScrollOfTransmutation.class, 6f );
 	}
-	
+	*/
 	public void paint( Level level ) {
 		
 		Painter.fill( level, this, Terrain.WALL );
@@ -86,13 +88,13 @@ public class SecretLibraryRoom extends SecretRoom {
 		entrance.set( Door.Type.HIDDEN );
 		
 		int n = Random.IntRange( 2, 3 );
-		HashMap<Class<? extends Scroll>, Float> chances = new HashMap<>(scrollChances);
+		//HashMap<Class<? extends Scroll>, Float> chances = new HashMap<>(scrollChances);
 		for (int i=0; i < n; i++) {
 			int pos;
 			do {
 				pos = level.pointToCell(random());
 			} while (level.map[pos] != Terrain.EMPTY_SP || level.heaps.get( pos ) != null);
-			
+			/*
 			Class<?extends Scroll> scrollCls = Random.chances(chances);
 			chances.put(scrollCls, 0f);
 
@@ -101,8 +103,8 @@ public class SecretLibraryRoom extends SecretRoom {
 					scrollCls = ExoticScroll.regToExo.get(scrollCls);
 				}
 			}
-
-			level.drop( Reflection.newInstance(scrollCls), pos );
+			*/
+			level.drop( Generator.randomItem(), pos );
 		}
 	}
 	

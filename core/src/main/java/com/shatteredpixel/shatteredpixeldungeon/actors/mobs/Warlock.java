@@ -55,7 +55,7 @@ public class Warlock extends Mob implements Callback {
 		EXP = 11;
 		maxLvl = 21;
 		
-		loot = Generator.Category.POTION;
+		loot = Generator.randomItem();
 		lootChance = 0.5f;
 
 		properties.add(Property.UNDEAD);
@@ -148,6 +148,8 @@ public class Warlock extends Mob implements Callback {
 		next();
 	}
 
+	// Randomized. No longer necessary.
+	/*
 	@Override
 	public Item createLoot(){
 
@@ -164,4 +166,5 @@ public class Warlock extends Mob implements Callback {
 		}
 
 	}
+	*/
 }

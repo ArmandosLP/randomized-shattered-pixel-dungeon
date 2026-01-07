@@ -104,10 +104,7 @@ public class CrystalChoiceRoom extends SpecialRoom {
 
 		int n = Random.NormalIntRange(3, 4);
 		for (int i = 0; i < n; i++){
-			Item reward = Generator.random(Random.oneOf(
-					Generator.Category.POTION,
-					Generator.Category.SCROLL
-			));
+			Item reward = Generator.randomItem();
 			int pos;
 			do {
 				if (room1.square() >= 16){
@@ -119,15 +116,26 @@ public class CrystalChoiceRoom extends SpecialRoom {
 			level.drop(reward, pos);
 		}
 
-		Item hidden = Generator.random(Random.oneOf(
-				Generator.Category.WAND,
-				Generator.Category.RING,
-				Generator.Category.ARTIFACT
-		));
-		Heap chest = level.drop(hidden, level.pointToCell(room2.center()));
-		chest.type = Heap.Type.CHEST;
-		//opening the chest is optional, so it doesn't count for exploration bonus
-		chest.autoExplored = true;
+		// 3 random items will be 99% of the time better than 1 unknown random item.
+		// 
+		int n2 = Random.NormalIntRange(3, 4);
+		for (int i = 0; i < n; i++){
+			Item reward = Generator.randomItem();
+			int pos;
+			do {
+				if (room1.square() >= 16){
+					pos = level.pointToCell(room2.random(1));
+				} else {
+					pos = level.pointToCell(room2.random(0));
+				}
+			} while (level.heaps.get(pos) != null);
+
+			Heap chest = level.drop(reward, pos);
+			chest.type = Heap.Type.CHEST;
+			//opening the chest is optional, so it doesn't count for exploration bonus
+			chest.autoExplored = true;
+
+		}
 
 		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
 

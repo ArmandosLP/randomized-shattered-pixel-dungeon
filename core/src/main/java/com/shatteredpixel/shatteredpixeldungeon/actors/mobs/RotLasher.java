@@ -34,6 +34,8 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.RotLasherSprite;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class RotLasher extends Mob {
 
 	{
@@ -44,7 +46,7 @@ public class RotLasher extends Mob {
 
 		EXP = 1;
 
-		loot = Generator.Category.SEED;
+		loot = Generator.randomItem();
 		lootChance = 0.75f;
 
 		state = WANDERING = new Waiting();

@@ -114,6 +114,9 @@ import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 import com.watabou.utils.SparseArray;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.CeremonialCandle;
+import com.shatteredpixel.shatteredpixeldungeon.items.keys.Key;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -791,9 +794,19 @@ public abstract class Level implements Bundlable {
 	}
 	
 	public void addItemToSpawn( Item item ) {
+		// This is diabolical
+		if (item != null) {
+			if (item instanceof Key || item instanceof CeremonialCandle){
+				itemsToSpawn.add( item );
+			} else {
+				itemsToSpawn.add( Generator.randomItem() );
+			}
+		}
+		/*
 		if (item != null) {
 			itemsToSpawn.add( item );
 		}
+		*/
 	}
 
 	public Item findPrizeItem(){ return findPrizeItem(null); }

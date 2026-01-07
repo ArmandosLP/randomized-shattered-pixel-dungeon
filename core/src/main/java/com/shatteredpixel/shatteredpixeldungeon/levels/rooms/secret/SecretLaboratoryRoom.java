@@ -45,10 +45,12 @@ import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.HashMap;
 
 public class SecretLaboratoryRoom extends SecretRoom {
-	
+	/*
 	private static HashMap<Class<? extends Potion>, Float> potionChances = new HashMap<>();
 	static{
 		potionChances.put(PotionOfHealing.class,        1f);
@@ -63,7 +65,7 @@ public class SecretLaboratoryRoom extends SecretRoom {
 		potionChances.put(PotionOfPurity.class,         4f);
 		potionChances.put(PotionOfExperience.class,     6f);
 	}
-	
+	*/
 	public void paint( Level level ) {
 		
 		Painter.fill( level, this, Terrain.WALL );
@@ -88,12 +90,14 @@ public class SecretLaboratoryRoom extends SecretRoom {
 		level.drop( new EnergyCrystal().quantity(Random.IntRange(3, 5)), pos );
 
 		int n = Random.IntRange( 2, 3 );
-		HashMap<Class<? extends Potion>, Float> chances = new HashMap<>(potionChances);
+		//HashMap<Class<? extends Potion>, Float> chances = new HashMap<>(potionChances);
 		for (int i=0; i < n; i++) {
+			
 			do {
 				pos = level.pointToCell(random());
 			} while (level.map[pos] != Terrain.EMPTY_SP || level.heaps.get( pos ) != null);
 			
+			/*
 			Class<?extends Potion> potionCls = Random.chances(chances);
 			chances.put(potionCls, 0f);
 
@@ -102,8 +106,9 @@ public class SecretLaboratoryRoom extends SecretRoom {
 					potionCls = ExoticPotion.regToExo.get(potionCls);
 				}
 			}
+			*/
 
-			level.drop( Reflection.newInstance(potionCls), pos );
+			level.drop(Generator.randomItem(), pos );
 		}
 		
 	}

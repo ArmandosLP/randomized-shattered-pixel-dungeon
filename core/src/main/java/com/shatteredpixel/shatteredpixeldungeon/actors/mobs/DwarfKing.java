@@ -74,6 +74,8 @@ import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -559,9 +561,9 @@ public class DwarfKing extends Mob {
 		}
 
 		if (pos == CityBossLevel.throne){
-			Dungeon.level.drop(new KingsCrown(), pos + Dungeon.level.width()).sprite.drop(pos);
+			Dungeon.level.drop(Generator.randomItem(), pos + Dungeon.level.width()).sprite.drop(pos);
 		} else {
-			Dungeon.level.drop(new KingsCrown(), pos).sprite.drop();
+			Dungeon.level.drop(Generator.randomItem(), pos).sprite.drop();
 		}
 
 		Badges.validateBossSlain();

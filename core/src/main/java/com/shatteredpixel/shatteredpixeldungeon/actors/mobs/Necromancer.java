@@ -44,6 +44,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 public class Necromancer extends Mob {
 	
 	{
@@ -55,7 +57,7 @@ public class Necromancer extends Mob {
 		EXP = 7;
 		maxLvl = 14;
 		
-		loot = PotionOfHealing.class;
+		loot = Generator.randomItem();
 		lootChance = 0.2f; //see lootChance()
 		
 		properties.add(Property.UNDEAD);

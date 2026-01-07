@@ -83,8 +83,8 @@ public class MassGraveRoom extends SpecialRoom {
 		items.add(new Gold(1));
 		if (Random.Float() <= 0.3f) items.add(new Gold());
 		if (Random.Float() <= 0.3f) items.add(new Gold());
-		if (Random.Float() <= 0.6f) items.add(Generator.random());
-		if (Random.Float() <= 0.3f) items.add(Generator.randomArmor());
+		if (Random.Float() <= 0.6f) items.add(Generator.randomItem());
+		if (Random.Float() <= 0.3f) items.add(Generator.randomItem());
 
 		for (Item item : items){
 			int pos;

@@ -48,11 +48,38 @@ import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SkeletonKey;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.TalismanOfForesight;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.TimekeepersHourglass;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.UnstableSpellbook;
-import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb;
-import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
-import com.shatteredpixel.shatteredpixeldungeon.items.food.MysteryMeat;
-import com.shatteredpixel.shatteredpixeldungeon.items.food.Pasty;
+
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.Potion;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfCleansing;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfCorrosiveGas;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfDivineInspiration;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfDragonsBreath;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfEarthenArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfMagicalSight;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfMastery;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfShielding;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfShroudingFog;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfSnapFreeze;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfStamina;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.PotionOfStormClouds;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfAquaticRejuvenation;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfArcaneArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfDragonsBlood;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfFeatherFall;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfHoneyedHealing;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfIcyTouch;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfMight;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfToxicEssence;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.AquaBrew;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.BlizzardBrew;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.CausticBrew;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.InfernalBrew;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.ShockingBrew;
+import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.UnstableBrew;
+
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfExperience;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfFrost;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfHaste;
@@ -65,9 +92,12 @@ import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfParalyticG
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfPurity;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfStrength;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.PotionOfToxicGas;
+
+
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.brews.Brew;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.Elixir;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic.ExoticPotion;
+
 import com.shatteredpixel.shatteredpixeldungeon.items.quest.Pickaxe;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfAccuracy;
@@ -95,8 +125,8 @@ import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfTeleportat
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfTerror;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfTransmutation;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ExoticScroll;
-import com.shatteredpixel.shatteredpixeldungeon.items.spells.Spell;
+
+
 import com.shatteredpixel.shatteredpixeldungeon.items.stones.Runestone;
 import com.shatteredpixel.shatteredpixeldungeon.items.stones.StoneOfAggression;
 import com.shatteredpixel.shatteredpixeldungeon.items.stones.StoneOfAugmentation;
@@ -176,23 +206,8 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WarHammer;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WarScythe;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Whip;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WornShortsword;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Bolas;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.FishingSpear;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ForceCube;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.HeavyBoomerang;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Javelin;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Kunai;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Shuriken;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingClub;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingHammer;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingKnife;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpear;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpike;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingStone;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Tomahawk;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Trident;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+
+
 import com.shatteredpixel.shatteredpixeldungeon.plants.Blindweed;
 import com.shatteredpixel.shatteredpixeldungeon.plants.Earthroot;
 import com.shatteredpixel.shatteredpixeldungeon.plants.Fadeleaf;
@@ -211,12 +226,380 @@ import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
 import com.watabou.utils.Reflection;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Torch;
+import com.shatteredpixel.shatteredpixeldungeon.items.TengusMask;
+import com.shatteredpixel.shatteredpixeldungeon.items.Stylus;
+import com.shatteredpixel.shatteredpixeldungeon.items.LiquidMetal;
+import com.shatteredpixel.shatteredpixeldungeon.items.KingsCrown;
+import com.shatteredpixel.shatteredpixeldungeon.items.Honeypot;
+import com.shatteredpixel.shatteredpixeldungeon.items.Amulet;
+import com.shatteredpixel.shatteredpixeldungeon.items.Ankh;
+import com.shatteredpixel.shatteredpixeldungeon.items.ArcaneResin;
+import com.shatteredpixel.shatteredpixeldungeon.items.BrokenSeal;
+
+
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.Pickaxe;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.GooBlob;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.MetalShard;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.CorpseDust;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.Embers;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Bomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.ArcaneBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Firebomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.FlashBangBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.FrostBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.HolyBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Noisemaker;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.WoollyBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.RegrowthBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.ShrapnelBomb;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.SmokeBomb;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.SupplyRation;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.StewedMeat;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.SmallRation;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.PhantomMeat;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.Pasty;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.MysteryMeat;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.MeatPie;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.FrozenCarpaccio;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.ChargrilledMeat;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.Blandfruit;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.Berry;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.RemainsItem;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.TornPage;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.SealShard;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.CloakScrap;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.BrokenStaff;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.BrokenHilt;
+import com.shatteredpixel.shatteredpixeldungeon.items.remains.BowFragment;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ExoticScroll;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfSirensSong;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfPsionicBlast;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfPrismaticImage;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfPassage;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfMysticalEnergy;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfMetamorphosis;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfForesight;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfEnchantment;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfDread;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfDivination;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfChallenge;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.exotic.ScrollOfAntiMagic;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Spell;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.WildEnergy;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.UnstableSpell;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.TelekineticGrab;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.TargetedSpell;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.SummonElemental;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Recycle;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.ReclaimTrap;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.PhaseShift;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.MagicalInfusion;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.InventorySpell;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.CurseInfusion;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.BeaconOfReturning;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Alchemize;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.SpiritBow;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Bolas;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.FishingSpear;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ForceCube;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.HeavyBoomerang;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Javelin;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Kunai;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.MissileWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Shuriken;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingClub;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingHammer;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingKnife;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpear;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingSpike;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.ThrowingStone;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Tomahawk;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.Trident;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.Dart;
+
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.AdrenalineDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.BlindingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.ChillingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.CleansingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.DisplacingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.HealingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.HolyDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.IncendiaryDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.ParalyticDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.PoisonDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.RotDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.ShockingDart;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts.TippedDart;
+
+
+
 public class Generator {
+	public static float randomDropChance = 0.15f;
+
+// Absolute garbage code made by Armantres
+public static Item randomItem() {
+    Class<? extends Item> cls = Random.element(ALL_ITEMS);
+    return Reflection.newInstance(cls);
+}
+
+
+private static final Class<? extends Item>[] ALL_ITEMS = new Class[]{
+
+	AdrenalineDart.class,
+	BlindingDart.class,
+	ChillingDart.class,
+	CleansingDart.class,
+	DisplacingDart.class,
+	HealingDart.class,
+	HolyDart.class,
+	IncendiaryDart.class,
+	ParalyticDart.class,
+	PoisonDart.class,
+	RotDart.class,
+	ShockingDart.class,
+
+	Bolas.class,
+	FishingSpear.class,
+	ForceCube.class,
+	HeavyBoomerang.class,
+	Javelin.class,
+	Kunai.class,
+	Shuriken.class,
+	ThrowingClub.class,
+	ThrowingHammer.class,
+	ThrowingKnife.class,
+	ThrowingSpear.class,
+	ThrowingSpike.class,
+	ThrowingStone.class,
+	Tomahawk.class,
+	Trident.class,
+
+	SpiritBow.class,
+	
+    AssassinsBlade.class,
+    BattleAxe.class,
+    Crossbow.class,
+    Cudgel.class,
+    Dagger.class,
+    Dirk.class,
+    Flail.class,
+    Gauntlet.class,
+    Glaive.class,
+    Gloves.class,
+    Greataxe.class,
+    Greatshield.class,
+    Greatsword.class,
+    HandAxe.class,
+    Katana.class,
+    Longsword.class,
+    Mace.class,
+    Quarterstaff.class,
+    Rapier.class,
+    RoundShield.class,
+    RunicBlade.class,
+    Scimitar.class,
+    Shortsword.class,
+    Spear.class,
+    Sword.class,
+    WarHammer.class,
+    WarScythe.class,
+    Whip.class,
+    WornShortsword.class,
+
+	WildEnergy.class,
+	UnstableSpell.class,
+	TelekineticGrab.class,
+	TargetedSpell.class,
+	SummonElemental.class,
+	Recycle.class,
+	ReclaimTrap.class,
+	PhaseShift.class,
+	MagicalInfusion.class,
+	CurseInfusion.class,
+	BeaconOfReturning.class,
+	Alchemize.class,
+
+	ScrollOfSirensSong.class,
+	ScrollOfPsionicBlast.class,
+	ScrollOfPrismaticImage.class,
+	ScrollOfPassage.class,
+	ScrollOfMysticalEnergy.class,
+	ScrollOfMetamorphosis.class,
+	ScrollOfForesight.class,
+	ScrollOfEnchantment.class,
+	ScrollOfDread.class,
+	ScrollOfDivination.class,
+	ScrollOfChallenge.class,
+	ScrollOfAntiMagic.class,
+
+	TornPage.class,
+	SealShard.class,
+	CloakScrap.class,
+	BrokenStaff.class,
+	BrokenHilt.class,
+	BowFragment.class,
+
+	Pickaxe.class,
+	GooBlob.class,
+	MetalShard.class,
+	CorpseDust.class,
+	Embers.class,
+	
+	PotionOfCleansing.class,
+	PotionOfCorrosiveGas.class,
+	PotionOfDivineInspiration.class,
+	PotionOfDragonsBreath.class,
+	PotionOfEarthenArmor.class,
+	PotionOfMagicalSight.class,
+	PotionOfMastery.class,
+	PotionOfShielding.class,
+	PotionOfShroudingFog.class,
+	PotionOfSnapFreeze.class,
+	PotionOfStamina.class,
+	PotionOfStormClouds.class,
+	ElixirOfAquaticRejuvenation.class,
+	ElixirOfArcaneArmor.class,
+	ElixirOfDragonsBlood.class,
+	ElixirOfFeatherFall.class,
+	ElixirOfHoneyedHealing.class,
+	ElixirOfIcyTouch.class,
+	ElixirOfMight.class,
+	ElixirOfToxicEssence.class,
+	AquaBrew.class,
+	BlizzardBrew.class,
+	CausticBrew.class,
+	InfernalBrew.class,
+	ShockingBrew.class,
+	UnstableBrew.class,
+
+	// Food
+	SupplyRation.class,
+	StewedMeat.class,
+	SmallRation.class,
+	PhantomMeat.class,
+	Pasty.class,
+	MysteryMeat.class,
+	MeatPie.class,
+	FrozenCarpaccio.class,
+	ChargrilledMeat.class,
+	Blandfruit.class,
+	Berry.class,
+
+	// BOMBS
+	Bomb.class,
+	ArcaneBomb.class,
+	Firebomb.class,
+	FlashBangBomb.class,
+	FrostBomb.class,
+	HolyBomb.class,
+	Noisemaker.class,
+	WoollyBomb.class,
+	RegrowthBomb.class,
+	ShrapnelBomb.class,
+	SmokeBomb.class,
+
+    // ARMOR
+    ClothArmor.class, LeatherArmor.class, MailArmor.class, ScaleArmor.class,
+    PlateArmor.class,
+
+    // ARTIFACTS
+    AlchemistsToolkit.class, ChaliceOfBlood.class, CloakOfShadows.class,
+    DriedRose.class, EtherealChains.class, HolyTome.class,
+    HornOfPlenty.class, MasterThievesArmband.class, SandalsOfNature.class,
+    SkeletonKey.class, TalismanOfForesight.class,
+    TimekeepersHourglass.class, UnstableSpellbook.class,
+
+    // POTIONS
+    PotionOfHealing.class, PotionOfStrength.class, PotionOfExperience.class,
+    PotionOfHaste.class, PotionOfInvisibility.class, PotionOfLevitation.class,
+    PotionOfLiquidFlame.class, PotionOfMindVision.class,
+    PotionOfParalyticGas.class, PotionOfPurity.class,
+    PotionOfToxicGas.class, PotionOfFrost.class,
+
+    // SCROLLS
+    ScrollOfIdentify.class, ScrollOfUpgrade.class, ScrollOfRemoveCurse.class,
+    ScrollOfMagicMapping.class, ScrollOfTeleportation.class,
+    ScrollOfMirrorImage.class, ScrollOfRage.class,
+    ScrollOfRetribution.class, ScrollOfTerror.class,
+    ScrollOfLullaby.class, ScrollOfTransmutation.class,
+    ScrollOfRecharging.class,
+
+    // RINGS
+    RingOfAccuracy.class, RingOfArcana.class, RingOfElements.class,
+    RingOfEnergy.class, RingOfEvasion.class, RingOfForce.class,
+    RingOfFuror.class, RingOfHaste.class, RingOfMight.class,
+    RingOfSharpshooting.class, RingOfTenacity.class, RingOfWealth.class,
+
+    // WANDS
+    WandOfMagicMissile.class, WandOfFireblast.class, WandOfFrost.class,
+    WandOfLightning.class, WandOfDisintegration.class,
+    WandOfCorruption.class, WandOfLivingEarth.class,
+    WandOfBlastWave.class, WandOfPrismaticLight.class,
+    WandOfRegrowth.class, WandOfTransfusion.class, WandOfWarding.class,
+
+    // STONES
+    StoneOfBlink.class, StoneOfShock.class, StoneOfFear.class,
+    StoneOfAggression.class, StoneOfFlock.class,
+    StoneOfEnchantment.class, StoneOfAugmentation.class,
+	
+	// I don't understand how seed items work
+/*
+    // PLANTS
+    Blindweed.class, Firebloom.class, Icecap.class, Sungrass.class,
+    Swiftthistle.class, Stormvine.class, Earthroot.class,
+    Fadeleaf.class, Sorrowmoss.class, Starflower.class, Rotberry.class
+*/	
+
+	// ETC
+	Torch.class,
+	TengusMask.class,
+	Stylus.class,
+	LiquidMetal.class,
+	KingsCrown.class,
+	Honeypot.class,
+	Amulet.class,
+	Ankh.class,
+	ArcaneResin.class,
+	BrokenSeal.class,
+
+	// Trinkets
+	CrackedSpyglass.class,
+	ChaoticCenser.class,
+	DimensionalSundial.class,
+	ExoticCrystals.class,
+	EyeOfNewt.class,
+	FerretTuft.class,
+	MimicTooth.class,
+	MossyClump.class,
+	ParchmentScrap.class,
+	PetrifiedSeed.class,
+	RatSkull.class,
+	SaltCube.class,
+	ShardOfOblivion.class,
+	ThirteenLeafClover.class,
+	TrapMechanism.class,
+	TrinketCatalyst.class,
+	VialOfBlood.class,
+	WondrousResin.class,
+
+};
+
+
 
 	public enum Category {
 		TRINKET ( 0, 0, Trinket.class),
@@ -326,6 +709,8 @@ public class Generator {
 					Gold.class };
 			GOLD.probs = new float[]{ 1 };
 			
+
+
 			POTION.classes = new Class<?>[]{
 					PotionOfStrength.class, //2 drop every chapter, see Dungeon.posNeeded()
 					PotionOfHealing.class,

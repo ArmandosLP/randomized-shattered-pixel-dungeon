@@ -332,6 +332,8 @@ public class Mimic extends Mob {
 	protected void generatePrize( boolean useDecks ){
 		Item reward = null;
 		do {
+			reward = Generator.randomItem();
+			/*
 			switch (Random.Int(5)) {
 				case 0:
 					reward = new Gold().random();
@@ -349,12 +351,13 @@ public class Mimic extends Mob {
 					reward = useDecks ? Generator.random(Generator.Category.RING) : Generator.randomUsingDefaults(Generator.Category.RING);
 					break;
 			}
+			*/
 		} while (reward == null || Challenges.isItemBlocked(reward));
 		items.add(reward);
 
 		if (MimicTooth.stealthyMimics()){
 			//add an extra random item if player has a mimic tooth
-			items.add(Generator.randomUsingDefaults());
+			reward = Generator.randomItem();
 		}
 	}
 

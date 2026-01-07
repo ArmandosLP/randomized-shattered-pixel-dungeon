@@ -65,11 +65,6 @@ public class StorageRoom extends SpecialRoom {
 				return prize;
 		}
 		
-		return Generator.random( Random.oneOf(
-			Generator.Category.POTION,
-			Generator.Category.SCROLL,
-			Generator.Category.FOOD,
-			Generator.Category.GOLD
-		) );
+		return Generator.randomItem();
 	}
 }

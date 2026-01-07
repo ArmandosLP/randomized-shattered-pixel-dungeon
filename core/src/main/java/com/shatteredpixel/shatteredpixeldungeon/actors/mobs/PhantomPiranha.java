@@ -35,6 +35,8 @@ import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
+
 import java.util.ArrayList;
 
 public class PhantomPiranha extends Piranha {
@@ -42,7 +44,7 @@ public class PhantomPiranha extends Piranha {
 	{
 		spriteClass = PhantomPiranhaSprite.class;
 
-		loot = PhantomMeat.class;
+		loot = Generator.randomItem();
 		lootChance = 1f;
 	}
 
