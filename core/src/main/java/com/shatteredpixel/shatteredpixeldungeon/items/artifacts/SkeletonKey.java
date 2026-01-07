@@ -556,7 +556,7 @@ public class SkeletonKey extends Artifact {
 
 	}
 
-	public static class KeyReplacementTracker extends Buff {
+public static class KeyReplacementTracker extends Buff {
 
 		public int[] ironKeysNeeded, goldenKeysNeeded, crystalKeysNeeded;
 
@@ -590,6 +590,13 @@ public class SkeletonKey extends Artifact {
 					crystalKeysNeeded[Dungeon.depth]++;
 				}
 			}
+		}
+
+		//used if a level was reset, e.g. via unblessed ankh vs. boss
+		public void clearDepth(){
+			ironKeysNeeded[Dungeon.depth] = -1;
+			goldenKeysNeeded[Dungeon.depth] = -1;
+			crystalKeysNeeded[Dungeon.depth] = -1;
 		}
 
 		public void processIronLockOpened(){
